@@ -2,26 +2,39 @@ import { Box, Button, Card, CardContent, Chip, Container, Grid, MenuItem, Stack,
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
-import { useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
 import type { TravelInquiryPayload } from "../types";
 
+const createInitialFormData = (searchParams: URLSearchParams): TravelInquiryPayload => ({
+  fullName: "",
+  phoneNumber: "",
+  email: "",
+  startingCity: "",
+  destination: searchParams.get("destination") ?? "",
+  travelDates: "",
+  travelers: "",
+  vehiclePreference: searchParams.get("vehiclePreference") ?? "",
+  budget: "",
+  message: searchParams.get("message") ?? ""
+});
+
 export function ContactPage() {
   const { contact, floatingActions } = useSiteContent();
-  const [formData, setFormData] = useState<TravelInquiryPayload>({
-    fullName: "",
-    phoneNumber: "",
-    email: "",
-    startingCity: "",
-    destination: "",
-    travelDates: "",
-    travelers: "",
-    vehiclePreference: "",
-    budget: "",
-    message: ""
-  });
+  const [searchParams] = useSearchParams();
+  const [formData, setFormData] = useState<TravelInquiryPayload>(() => createInitialFormData(searchParams));
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    setFormData((current) => ({
+      ...current,
+      destination: searchParams.get("destination") ?? current.destination,
+      vehiclePreference: searchParams.get("vehiclePreference") ?? current.vehiclePreference,
+      message: searchParams.get("message") ?? current.message
+    }));
+  }, [searchParams]);
 
   const handleChange =
     (field: keyof TravelInquiryPayload) =>

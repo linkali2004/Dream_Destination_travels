@@ -210,8 +210,13 @@ export function HomePage() {
                   highlights={home.pickupSection.badges}
                   requestLabel={vehiclesPage.card.requestLabel}
                   ctaLabel={home.pickupSection.ctaLabel}
-                  onBook={() => {
-                    window.location.href = "/contact";
+                  onBook={(vehicle) => {
+                    const bookingParams = new URLSearchParams({
+                      destination: vehicle.name,
+                      vehiclePreference: vehicle.name,
+                      message: `Interested in booking the ${vehicle.name}.`
+                    });
+                    window.location.href = `/contact?${bookingParams.toString()}`;
                   }}
                 />
               </Grid>

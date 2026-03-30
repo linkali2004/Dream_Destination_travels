@@ -1,6 +1,7 @@
 import { Alert, Box, Chip, Container, Snackbar, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { fetchVehicleCatalog, submitBooking } from "../api/services";
 import { AvailableVehicleCard } from "../components/AvailableVehicleCard";
 import { LoadingState } from "../components/LoadingState";
@@ -11,6 +12,7 @@ import type { VehicleCatalog, VehicleCatalogItem } from "../types";
 
 export function VehiclesPage() {
   const { vehiclesPage } = useSiteContent();
+  const navigate = useNavigate();
   const [selectedVehicle, setSelectedVehicle] = useAtom(selectedVehicleAtom);
   const [toastOpen, setToastOpen] = useAtom(bookingToastAtom);
   const emptyCatalog: VehicleCatalog = {
@@ -41,6 +43,12 @@ export function VehiclesPage() {
     void submitBooking({ vehicleName: vehicle.name });
     setSelectedVehicle(vehicle);
     setToastOpen(true);
+    const bookingParams = new URLSearchParams({
+      destination: vehicle.name,
+      vehiclePreference: vehicle.name,
+      message: `Interested in booking the ${vehicle.name}.`
+    });
+    navigate(`/contact?${bookingParams.toString()}`);
   };
 
   return (

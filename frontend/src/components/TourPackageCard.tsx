@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardContent, Chip, Stack, Typography } from "@mui/material";
-import { useSiteContent } from "../content/SiteContentContext";
+import { Link as RouterLink } from "react-router-dom";
 import type { TourPackage } from "../types";
 
 type TourPackageCardProps = {
@@ -7,9 +7,10 @@ type TourPackageCardProps = {
 };
 
 export function TourPackageCard({ tour }: TourPackageCardProps) {
-  const { floatingActions } = useSiteContent();
-  const bookingUrl = new URL(floatingActions.whatsappUrl);
-  bookingUrl.searchParams.set("text", `Hello, I want to book the ${tour.name} tour in ${tour.region} (${tour.zone} zone) for ${tour.days}.`);
+  const bookingParams = new URLSearchParams({
+    destination: `${tour.name}, ${tour.region}, ${tour.zone}`,
+    message: `Interested in the ${tour.name} tour for ${tour.days}.`
+  });
 
   return (
     <Card
@@ -156,10 +157,8 @@ export function TourPackageCard({ tour }: TourPackageCardProps) {
         </Typography>
 
         <Button
-          component="a"
-          href={bookingUrl.toString()}
-          target="_blank"
-          rel="noreferrer"
+          component={RouterLink}
+          to={`/contact?${bookingParams.toString()}`}
           variant="contained"
           fullWidth
           sx={{
