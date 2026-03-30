@@ -7,11 +7,17 @@ import { AvailableVehicleCard } from "../components/AvailableVehicleCard";
 import { LoadingState } from "../components/LoadingState";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
+import { usePageSeo } from "../seo";
 import { bookingToastAtom, selectedVehicleAtom } from "../state/atoms";
 import type { VehicleCatalog, VehicleCatalogItem } from "../types";
 
 export function VehiclesPage() {
   const { vehiclesPage } = useSiteContent();
+  usePageSeo({
+    title: "Vehicle Booking And Fleet Options",
+    description: "Explore available sedans, SUVs, tempo travellers, vans, and luxury vehicles for local, airport, and outstation travel.",
+    path: "/vehicles"
+  });
   const navigate = useNavigate();
   const [selectedVehicle, setSelectedVehicle] = useAtom(selectedVehicleAtom);
   const [toastOpen, setToastOpen] = useAtom(bookingToastAtom);

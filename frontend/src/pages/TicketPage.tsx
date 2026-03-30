@@ -1,9 +1,15 @@
 import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
+import { usePageSeo } from "../seo";
 
 export function TicketPage() {
   const { home, ticket } = useSiteContent();
+  usePageSeo({
+    title: "Taxi Fare Chart",
+    description: "View airport, local, outstation, and running charge pricing for Dream Destinations Travel vehicles.",
+    path: "/ticket"
+  });
 
   return (
     <Container maxWidth="xl" sx={{ py: 6 }}>

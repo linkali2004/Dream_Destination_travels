@@ -6,6 +6,7 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
+import { usePageSeo } from "../seo";
 import type { TravelInquiryPayload } from "../types";
 
 const createInitialFormData = (searchParams: URLSearchParams): TravelInquiryPayload => ({
@@ -23,6 +24,11 @@ const createInitialFormData = (searchParams: URLSearchParams): TravelInquiryPayl
 
 export function ContactPage() {
   const { contact, floatingActions } = useSiteContent();
+  usePageSeo({
+    title: "Book Your Travel",
+    description: "Share your trip details and book your travel with Dream Destinations Travel for tours, airport transfers, and custom journeys.",
+    path: "/contact"
+  });
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState<TravelInquiryPayload>(() => createInitialFormData(searchParams));
   const [submitting, setSubmitting] = useState(false);

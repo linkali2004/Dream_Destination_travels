@@ -7,10 +7,27 @@ import { SectionTitle } from "../components/SectionTitle";
 import { TourPackageCard } from "../components/TourPackageCard";
 import { SITE_BRAND_LOGO, SITE_BRAND_LOGO_ALT, SITE_BRAND_NAME } from "../branding";
 import { useSiteContent } from "../content/SiteContentContext";
+import { usePageSeo } from "../seo";
 import type { VehicleCatalogItem } from "../types";
 
 export function HomePage() {
   const { home, ticket, vehiclesPage } = useSiteContent();
+  usePageSeo({
+    title: "Premium Tours, Taxi Fare And Vehicle Booking",
+    description: "Book airport transfers, local taxis, outstation vehicles, and curated India tour packages with Dream Destinations Travel.",
+    path: "/",
+    image: home.heroSlides[0]?.image,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      name: SITE_BRAND_NAME,
+      url: typeof window !== "undefined" ? window.location.origin : "/",
+      image: home.heroSlides[0]?.image ?? SITE_BRAND_LOGO,
+      telephone: "+91 9389844884",
+      areaServed: "India",
+      serviceType: ["Tour Packages", "Taxi Booking", "Airport Transfers", "Outstation Travel"]
+    }
+  });
 
   return (
     <Stack spacing={8}>

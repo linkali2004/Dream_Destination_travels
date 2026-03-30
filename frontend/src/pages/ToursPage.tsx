@@ -6,9 +6,15 @@ import { LoadingState } from "../components/LoadingState";
 import { SectionTitle } from "../components/SectionTitle";
 import { ToursByZone } from "../components/ToursByZone";
 import { useSiteContent } from "../content/SiteContentContext";
+import { usePageSeo } from "../seo";
 
 export function ToursPage() {
   const { toursPage } = useSiteContent();
+  usePageSeo({
+    title: "Tour Packages Across India",
+    description: "Browse Dream Destinations Travel tour packages by zone and region, with curated itineraries for popular destinations across India.",
+    path: "/tours"
+  });
   const {
     data: tours = [],
     isLoading,

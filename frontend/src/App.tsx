@@ -1,16 +1,10 @@
 import { Box } from "@mui/material";
-import { useEffect } from "react";
-import { SITE_BRAND_NAME } from "./branding";
 import { Footer } from "./components/Footer";
 import { FloatingActions } from "./components/FloatingActions";
 import { Navbar } from "./components/Navbar";
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
-  useEffect(() => {
-    document.title = SITE_BRAND_NAME;
-  }, []);
-
   return (
     <Box
       sx={{
