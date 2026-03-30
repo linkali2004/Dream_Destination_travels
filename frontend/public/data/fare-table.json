@@ -1,0 +1,92 @@
+[
+  {
+    "type": "Sedan",
+    "airport": "Rs.860",
+    "roundTrip": "Rs.10/km",
+    "oneWay": "Rs.15/km",
+    "fullDay": "Rs.2,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "Sedan Plus",
+    "airport": "Rs.1,060",
+    "roundTrip": "Rs.12/km",
+    "oneWay": "Rs.17/km",
+    "fullDay": "Rs.2,800",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "SUV",
+    "airport": "Rs.1,360",
+    "roundTrip": "Rs.13/km",
+    "oneWay": "Rs.18/km",
+    "fullDay": "Rs.3,000",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "SUV Plus",
+    "airport": "Rs.1,460",
+    "roundTrip": "Rs.14/km",
+    "oneWay": "Rs.20/km",
+    "fullDay": "Rs.3,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "Innova Crysta",
+    "airport": "Rs.1,660",
+    "roundTrip": "Rs.16/km",
+    "oneWay": "Rs.20/km",
+    "fullDay": "Rs.3,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "20 Seat Tempo Traveller",
+    "airport": "Rs.2,500",
+    "roundTrip": "Rs.25/km",
+    "oneWay": "Rs.50/km",
+    "fullDay": "Rs.6,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "17 Seater Urbania",
+    "airport": "Rs.3,000",
+    "roundTrip": "Rs.30/km",
+    "oneWay": "Rs.60/km",
+    "fullDay": "Rs.7,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "17 Seat Tempo Traveller",
+    "airport": "Rs.2,250",
+    "roundTrip": "Rs.23/km",
+    "oneWay": "Rs.46/km",
+    "fullDay": "Rs.6,000",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "26 Seat Tempo Traveller",
+    "airport": "Rs.3,000",
+    "roundTrip": "Rs.30/km",
+    "oneWay": "Rs.60/km",
+    "fullDay": "Rs.8,000",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  },
+  {
+    "type": "12 Seater Vinger",
+    "airport": "Rs.2,500",
+    "roundTrip": "Rs.20/km",
+    "oneWay": "Rs.40/km",
+    "fullDay": "Rs.5,500",
+    "insideCity": "Rs.200/km",
+    "outsideCity": "Rs.250/km"
+  }
+]

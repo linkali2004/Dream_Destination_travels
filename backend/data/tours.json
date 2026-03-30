@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Spiritual Varanasi Experience",
+    "days": "2 Days",
+    "type": "Spiritual",
+    "image": "https://images.unsplash.com/photo-1599833975787-5c143f373c30?auto=format&fit=crop&w=1200&q=80",
+    "description": "Sunrise boat ride, temple visits and evening Ganga Aarti in the holy city.",
+    "location": "Kashi Ghats"
+  },
+  {
+    "id": 2,
+    "title": "Vindhyanchal Hills & Temple",
+    "days": "5 Days",
+    "type": "Adventure",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "description": "5-day trekking expedition through Vindhyanchal Temple's scenic trail.",
+    "location": "Vindhyachal"
+  },
+  {
+    "id": 3,
+    "title": "Vishwanath Temple Circuit",
+    "days": "1 Day",
+    "type": "Cultural",
+    "image": "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=80",
+    "description": "Explore Varanasi's most iconic cultural and devotional route.",
+    "location": "Vishwanath Temple"
+  },
+  {
+    "id": 4,
+    "title": "Forte Package",
+    "days": "Custom",
+    "type": "Museum",
+    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=1200&q=80",
+    "description": "Ram Nagar Forte and heritage sightseeing package.",
+    "location": "Ram Nagar Forte"
+  },
+  {
+    "id": 5,
+    "title": "Jaipur Royal Heritage",
+    "days": "3 Days",
+    "type": "Cultural",
+    "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80",
+    "description": "Hawa Mahal, Amer Fort, City Palace and vibrant local bazaars.",
+    "location": "Jaipur"
+  },
+  {
+    "id": 6,
+    "title": "Lucknow Nawabi Trail",
+    "days": "2 Days",
+    "type": "Food & Culture",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+    "description": "Imambara tour, street food walk, and evening city highlights.",
+    "location": "Lucknow"
+  },
+  {
+    "id": 7,
+    "title": "Delhi Landmark Express",
+    "days": "2 Days",
+    "type": "City Tour",
+    "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=80",
+    "description": "India Gate, Qutub Minar, Red Fort and Old Delhi market circuit.",
+    "location": "Delhi"
+  },
+  {
+    "id": 8,
+    "title": "Mumbai Coastal Highlights",
+    "days": "3 Days",
+    "type": "Leisure",
+    "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1200&q=80",
+    "description": "Marine Drive, Gateway of India and city heritage neighborhoods.",
+    "location": "Mumbai"
+  }
+]

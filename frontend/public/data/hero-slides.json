@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Travel Adventures in Pashupati Nath Temple",
+    "subtitle": "Plan, book, and experience unforgettable adventures with our all-in-one travel app.",
+    "image": "https://images.unsplash.com/photo-1576487248805-cf45f6bcc67f?auto=format&fit=crop&w=1800&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Discover Varanasi with Trusted Drivers",
+    "subtitle": "Safe airport pickup, station drop, and outstation journeys with transparent fares.",
+    "image": "https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=1800&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Comfort Meets Reliability",
+    "subtitle": "From sedan rides to tempo travellers, find the right vehicle for every trip.",
+    "image": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1800&q=80"
+  }
+]

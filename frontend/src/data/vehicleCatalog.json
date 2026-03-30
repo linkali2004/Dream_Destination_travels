@@ -1,0 +1,72 @@
+{
+  "sedan": [
+    {
+      "name": "Maruti Suzuki Dzire",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4IHf4ONy5ES7a3BqM7kUd7IqRGSL_Nr6BlpefbaQZwvYaPFqBlgLdTvGpnTNkOkrK_Ba6-0HCVUclpB-U5UotB31NyWYhdJPViYTNNQ&s=10"
+    },
+    {
+      "name": "Toyota Etios",
+      "image_url": "https://imgd.aeplcdn.com/664x374/cw/ec/24731/Toyota-Platinum-Etios-Exterior-119077.jpg?wm=0&q=80"
+    },
+    {
+      "name": "Hyundai Aura",
+      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Aura/10125/1762429751468/front-left-side-47.jpg"
+    }
+  ],
+  "muv_suv": [
+    {
+      "name": "Maruti Suzuki Ertiga",
+      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Ertiga/10288/1755776579514/front-left-side-47.jpg"
+    },
+    {
+      "name": "Kia Carens",
+      "image_url": "https://imgd.aeplcdn.com/1056x594/n/a9aj3cb_1726561.jpg?q=80"
+    },
+    {
+      "name": "Toyota Innova",
+      "image_url": "https://imgd.aeplcdn.com/664x374/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-74.png?isig=0&q=80"
+    },
+    {
+      "name": "Toyota Innova Crysta",
+      "image_url": "https://imgd.aeplcdn.com/642x336/n/cw/ec/140809/innova-crysta-exterior-right-front-three-quarter-3.png?isig=0&q=80"
+    },
+    {
+      "name": "Toyota Fortuner",
+      "image_url": "https://imgd.aeplcdn.com/642x336/n/cw/ec/137767/fortuner-legender-exterior-right-front-three-quarter-5.png?isig=0&q=80"
+    }
+  ],
+  "tempo_traveler": [
+    {
+      "name": "17 Seater Tempo Traveler",
+      "image_url": "http://chandigarhtaxihire.com/images/17-seater-tempo-4301.jpg"
+    },
+    {
+      "name": "20 Seater Tempo Traveler",
+      "image_url": "https://punetours.com/wp-content/uploads/2021/01/20-seater-Tempo-Travller.jpg"
+    },
+    {
+      "name": "26 Seater Tempo Traveler",
+      "image_url": "https://punetours.com/wp-content/uploads/2021/01/26-seater-travller.jpg"
+    }
+  ],
+  "van": [
+    {
+      "name": "Force Urbania",
+      "image_url": "https://kartikcab.com/wp-content/uploads/2023/12/11-seater-urbania-6.jpg"
+    }
+  ],
+  "luxury": [
+    {
+      "name": "BMW",
+      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/930x620/BMW/X5/10452/1762779994999/front-left-side-47.jpg"
+    },
+    {
+      "name": "Mercedes",
+      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Mercedes-Benz/C-Class/10858/1774342866770/front-left-side-47.jpg"
+    },
+    {
+      "name": "Audi",
+      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Audi/A4/10548/1757137106350/front-left-side-47.jpg?impolicy=resize&imwidth=480"
+    }
+  ]
+}
