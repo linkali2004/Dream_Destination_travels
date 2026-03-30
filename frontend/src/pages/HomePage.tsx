@@ -57,7 +57,15 @@ export function HomePage() {
                   component="img"
                   src={SITE_BRAND_LOGO}
                   alt={SITE_BRAND_LOGO_ALT}
-                  sx={{ width: { xs: 160, md: 240 }, height: { xs: 160, md: 240 }, objectFit: "cover", borderRadius: "50%" }}
+                  sx={{
+                    width: { xs: 160, md: 240 },
+                    height: { xs: 160, md: 240 },
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    borderRadius: "50%",
+                    backgroundColor: "#F7F3EA",
+                    p: { xs: 1.2, md: 1.6 }
+                  }}
                 />
                 <Typography variant="h4" mt={2.2} textAlign="center">
                   {SITE_BRAND_NAME}
