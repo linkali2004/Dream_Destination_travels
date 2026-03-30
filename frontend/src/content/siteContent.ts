@@ -45,19 +45,19 @@ export const siteContent: SiteContent = {
         id: 1,
         title: "Premium Rides For Every Journey",
         subtitle: "Book verified drivers, clean vehicles, and reliable travel for airport transfers, local rides, and outstation trips.",
-        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+        image: "https://mysimplesojourn.com/wp-content/uploads/2023/05/Varanasi-scaled.jpg"
       },
       {
         id: 2,
         title: "Explore India with Comfortable, Trusted Travel",
         subtitle: "From city transfers to long-distance journeys, travel across India with dependable vehicles and transparent fares.",
-        image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=80"
+        image: "https://experiencemyindia.com/wp-content/uploads/2024/11/Taj-Mahal-Agra.jpg.webp"
       },
       {
         id: 3,
         title: "Book For Family Trips, Events, And Tours",
         subtitle: "Choose the right vehicle for your group and travel with consistent support from pickup to drop.",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80"
+        image: "https://traveltonirvana.com/wp-content/uploads/2023/10/Untitled-design-2048x1152-1.png"
       }
     ],
     aboutTitle: "Plan Your Trip with Us",

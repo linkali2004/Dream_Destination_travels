@@ -9,6 +9,11 @@ type HeroCarouselProps = {
 };
 
 export function HeroCarousel({ slides, ctaLabel }: HeroCarouselProps) {
+  const handleExploreNowClick = () => {
+    const toursSection = document.getElementById("home-tours-section");
+    toursSection?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <Box
       sx={{
@@ -31,7 +36,10 @@ export function HeroCarousel({ slides, ctaLabel }: HeroCarouselProps) {
       }}
     >
       <Carousel autoPlay infiniteLoop interval={4500} showThumbs={false} showStatus={false} stopOnHover={false} showArrows={false}>
-        {slides.map((slide) => (
+        {slides.map((slide, index) => {
+          const isPrimarySlide = index === 0;
+
+          return (
           <Box key={slide.id} sx={{ position: "relative", height: { xs: 480, sm: 540, md: 560, lg: 470 } }}>
             <Box
               component="img"
@@ -76,7 +84,9 @@ export function HeroCarousel({ slides, ctaLabel }: HeroCarouselProps) {
                     p: { xs: 2, sm: 2.5, md: 0 },
                     borderRadius: { xs: "28px", md: 0 },
                     background: {
-                      xs: "linear-gradient(180deg, rgba(10, 20, 40, 0.68) 0%, rgba(10, 20, 40, 0.5) 100%)",
+                      xs: isPrimarySlide
+                        ? "linear-gradient(180deg, rgba(10, 20, 40, 0.68) 0%, rgba(10, 20, 40, 0.5) 100%)"
+                        : "linear-gradient(180deg, rgba(10, 20, 40, 0.48) 0%, rgba(10, 20, 40, 0.34) 100%)",
                       md: "transparent"
                     },
                     backdropFilter: { xs: "blur(12px)", md: "none" },
@@ -116,25 +126,29 @@ export function HeroCarousel({ slides, ctaLabel }: HeroCarouselProps) {
                   >
                     {slide.subtitle}
                   </Typography>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    sx={{
-                      borderRadius: 99,
-                      px: { xs: 2.4, sm: 3.4 },
-                      py: { xs: 1, sm: 1.08 },
-                      width: { xs: "100%", sm: "auto" },
-                      minWidth: { sm: 180 },
-                      fontWeight: 700
-                    }}
-                  >
-                    {ctaLabel}
-                  </Button>
+                  {isPrimarySlide ? (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleExploreNowClick}
+                      sx={{
+                        borderRadius: 99,
+                        px: { xs: 2.4, sm: 3.4 },
+                        py: { xs: 1, sm: 1.08 },
+                        width: { xs: "100%", sm: "auto" },
+                        minWidth: { sm: 180 },
+                        fontWeight: 700
+                      }}
+                    >
+                      {ctaLabel}
+                    </Button>
+                  ) : null}
                 </Box>
               </Box>
             </Box>
           </Box>
-        ))}
+        );
+        })}
       </Carousel>
     </Box>
   );

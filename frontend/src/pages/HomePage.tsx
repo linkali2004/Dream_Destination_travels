@@ -127,7 +127,7 @@ export function HomePage() {
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 4, md: 5 } }}>
+      <Box id="home-tours-section" sx={{ py: { xs: 4, md: 5 }, scrollMarginTop: { xs: 88, md: 108 } }}>
         <Container maxWidth="xl">
           <SectionTitle title={home.packagesSection.title} subtitle={home.packagesSection.subtitle} />
           <Grid container spacing={3}>
