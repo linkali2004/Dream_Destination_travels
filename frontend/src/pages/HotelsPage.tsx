@@ -3,15 +3,18 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useAtomValue } from "jotai";
 import { useMemo, useState } from "react";
 import { HotelCard } from "../components/HotelCard";
+import { HotelBookingDialog } from "../components/HotelBookingDialog";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
 import { usePageSeo } from "../seo";
 import { hotelsAtom } from "../state/atoms";
+import type { Hotel } from "../types";
 
 export function HotelsPage() {
   const { hotelsPage } = useSiteContent();
   const hotels = useAtomValue(hotelsAtom);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedHotel, setSelectedHotel] = useState<Hotel | null>(null);
 
   usePageSeo({
     title: "Hotel Booking",
@@ -62,7 +65,7 @@ export function HotelsPage() {
           <Grid container spacing={3}>
             {filteredHotels.map((hotel) => (
               <Grid key={hotel.id} size={{ xs: 12, md: 6, lg: 4 }}>
-                <HotelCard hotel={hotel} />
+                <HotelCard hotel={hotel} onBook={setSelectedHotel} />
               </Grid>
             ))}
           </Grid>
@@ -72,6 +75,7 @@ export function HotelsPage() {
           </Box>
         )}
       </Stack>
+      <HotelBookingDialog hotel={selectedHotel} open={Boolean(selectedHotel)} onClose={() => setSelectedHotel(null)} />
     </Container>
   );
 }

@@ -2,19 +2,14 @@ import { Box, Button, Card, CardContent, Chip, Stack, Typography } from "@mui/ma
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Link as RouterLink } from "react-router-dom";
 import type { Hotel } from "../types";
 
 type HotelCardProps = {
   hotel: Hotel;
+  onBook: (hotel: Hotel) => void;
 };
 
-export function HotelCard({ hotel }: HotelCardProps) {
-  const bookingParams = new URLSearchParams({
-    destination: `${hotel.name}, ${hotel.city}`,
-    message: `Interested in hotel booking at ${hotel.name} in ${hotel.location}.`
-  });
-
+export function HotelCard({ hotel, onBook }: HotelCardProps) {
   return (
     <Card
       sx={{
@@ -71,10 +66,9 @@ export function HotelCard({ hotel }: HotelCardProps) {
           </Stack>
 
           <Button
-            component={RouterLink}
-            to={`/contact?${bookingParams.toString()}`}
             variant="contained"
             fullWidth
+            onClick={() => onBook(hotel)}
             sx={{
               py: 1.2,
               background: "linear-gradient(135deg, #E3ECFF 0%, #FFFFFF 100%)",

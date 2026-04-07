@@ -6,6 +6,7 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
+import { hasValue, isPositiveAmount, isPositiveInteger, isValidEmail, isValidPhoneNumber } from "../lib/validation";
 import { usePageSeo } from "../seo";
 import type { TravelInquiryPayload } from "../types";
 
@@ -22,6 +23,62 @@ const createInitialFormData = (searchParams: URLSearchParams): TravelInquiryPayl
   message: searchParams.get("message") ?? ""
 });
 
+type TravelInquiryErrors = Partial<Record<keyof TravelInquiryPayload, string>>;
+
+const validateTravelInquiry = (formData: TravelInquiryPayload) => {
+  const errors: TravelInquiryErrors = {};
+
+  if (!hasValue(formData.fullName)) {
+    errors.fullName = "Full name is required.";
+  }
+
+  if (!hasValue(formData.phoneNumber)) {
+    errors.phoneNumber = "Phone number is required.";
+  } else if (!isValidPhoneNumber(formData.phoneNumber)) {
+    errors.phoneNumber = "Enter a valid 10 digit Indian phone number.";
+  }
+
+  if (!hasValue(formData.email)) {
+    errors.email = "Email address is required.";
+  } else if (!isValidEmail(formData.email)) {
+    errors.email = "Enter a valid email address.";
+  }
+
+  if (!hasValue(formData.startingCity)) {
+    errors.startingCity = "Starting city is required.";
+  }
+
+  if (!hasValue(formData.destination)) {
+    errors.destination = "Destination is required.";
+  }
+
+  if (!hasValue(formData.travelDates)) {
+    errors.travelDates = "Travel dates are required.";
+  }
+
+  if (!hasValue(formData.travelers)) {
+    errors.travelers = "Number of travelers is required.";
+  } else if (!isPositiveInteger(formData.travelers)) {
+    errors.travelers = "Enter a valid number of travelers.";
+  }
+
+  if (!hasValue(formData.vehiclePreference)) {
+    errors.vehiclePreference = "Choose a travel type.";
+  }
+
+  if (!hasValue(formData.budget)) {
+    errors.budget = "Approximate budget is required.";
+  } else if (!isPositiveAmount(formData.budget)) {
+    errors.budget = "Enter a valid budget amount.";
+  }
+
+  if (!hasValue(formData.message)) {
+    errors.message = "Trip notes are required.";
+  }
+
+  return errors;
+};
+
 export function ContactPage() {
   const { contact, floatingActions } = useSiteContent();
   usePageSeo({
@@ -31,6 +88,7 @@ export function ContactPage() {
   });
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState<TravelInquiryPayload>(() => createInitialFormData(searchParams));
+  const [errors, setErrors] = useState<TravelInquiryErrors>({});
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -46,9 +104,17 @@ export function ContactPage() {
     (field: keyof TravelInquiryPayload) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormData((current) => ({ ...current, [field]: event.target.value }));
+      setErrors((current) => ({ ...current, [field]: undefined }));
     };
 
   const handleSubmit = async () => {
+    const validationErrors = validateTravelInquiry(formData);
+
+    if (Object.keys(validationErrors).length) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -56,16 +122,16 @@ export function ContactPage() {
       const whatsappMessage = [
         "I want to do a booking",
         "",
-        `Full Name: ${formData.fullName}`,
-        `Phone Number: ${formData.phoneNumber}`,
-        `Email: ${formData.email}`,
-        `Starting City: ${formData.startingCity}`,
-        `Destination / Places to Visit: ${formData.destination}`,
-        `Travel Dates: ${formData.travelDates}`,
-        `Number of Travelers: ${formData.travelers}`,
-        `Preferred Vehicle / Travel Type: ${formData.vehiclePreference}`,
-        `Approximate Budget: ${formData.budget}`,
-        `Trip Notes: ${formData.message || "N/A"}`
+        `Full Name: ${formData.fullName.trim()}`,
+        `Phone Number: ${formData.phoneNumber.trim()}`,
+        `Email: ${formData.email.trim()}`,
+        `Starting City: ${formData.startingCity.trim()}`,
+        `Destination / Places to Visit: ${formData.destination.trim()}`,
+        `Travel Dates: ${formData.travelDates.trim()}`,
+        `Number of Travelers: ${formData.travelers.trim()}`,
+        `Preferred Vehicle / Travel Type: ${formData.vehiclePreference.trim()}`,
+        `Approximate Budget: ${formData.budget.trim()}`,
+        `Trip Notes: ${formData.message.trim()}`
       ].join("\n");
 
       whatsappUrl.searchParams.set("text", whatsappMessage);
@@ -131,23 +197,23 @@ export function ContactPage() {
           <Card sx={{ borderRadius: "32px" }}>
             <CardContent sx={{ p: 3 }}>
               <Stack spacing={2.2}>
-                <TextField label={contact.form.fields.fullName} fullWidth value={formData.fullName} onChange={handleChange("fullName")} />
-                <TextField label={contact.form.fields.phoneNumber} fullWidth value={formData.phoneNumber} onChange={handleChange("phoneNumber")} />
-                <TextField label={contact.form.fields.email} fullWidth value={formData.email} onChange={handleChange("email")} />
+                <TextField label={contact.form.fields.fullName} fullWidth required value={formData.fullName} onChange={handleChange("fullName")} error={Boolean(errors.fullName)} helperText={errors.fullName} />
+                <TextField label={contact.form.fields.phoneNumber} fullWidth required value={formData.phoneNumber} onChange={handleChange("phoneNumber")} error={Boolean(errors.phoneNumber)} helperText={errors.phoneNumber} />
+                <TextField label={contact.form.fields.email} fullWidth required type="email" value={formData.email} onChange={handleChange("email")} error={Boolean(errors.email)} helperText={errors.email} />
                 <Grid container spacing={2}>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <TextField label={contact.form.fields.startingCity} fullWidth value={formData.startingCity} onChange={handleChange("startingCity")} />
+                    <TextField label={contact.form.fields.startingCity} fullWidth required value={formData.startingCity} onChange={handleChange("startingCity")} error={Boolean(errors.startingCity)} helperText={errors.startingCity} />
                   </Grid>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <TextField label={contact.form.fields.destination} fullWidth value={formData.destination} onChange={handleChange("destination")} />
+                    <TextField label={contact.form.fields.destination} fullWidth required value={formData.destination} onChange={handleChange("destination")} error={Boolean(errors.destination)} helperText={errors.destination} />
                   </Grid>
                 </Grid>
                 <Grid container spacing={2}>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <TextField label={contact.form.fields.travelDates} fullWidth value={formData.travelDates} onChange={handleChange("travelDates")} />
+                    <TextField label={contact.form.fields.travelDates} fullWidth required value={formData.travelDates} onChange={handleChange("travelDates")} error={Boolean(errors.travelDates)} helperText={errors.travelDates} />
                   </Grid>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <TextField label={contact.form.fields.travelers} fullWidth value={formData.travelers} onChange={handleChange("travelers")} />
+                    <TextField label={contact.form.fields.travelers} fullWidth required value={formData.travelers} onChange={handleChange("travelers")} error={Boolean(errors.travelers)} helperText={errors.travelers} inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} />
                   </Grid>
                 </Grid>
                 <Grid container spacing={2}>
@@ -156,8 +222,11 @@ export function ContactPage() {
                       select
                       label={contact.form.fields.vehiclePreference}
                       fullWidth
+                      required
                       value={formData.vehiclePreference}
                       onChange={handleChange("vehiclePreference")}
+                      error={Boolean(errors.vehiclePreference)}
+                      helperText={errors.vehiclePreference}
                     >
                       <MenuItem value="Sedan">Sedan</MenuItem>
                       <MenuItem value="SUV / MUV">SUV / MUV</MenuItem>
@@ -167,16 +236,19 @@ export function ContactPage() {
                     </TextField>
                   </Grid>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <TextField label={contact.form.fields.budget} fullWidth value={formData.budget} onChange={handleChange("budget")} />
+                    <TextField label={contact.form.fields.budget} fullWidth required value={formData.budget} onChange={handleChange("budget")} error={Boolean(errors.budget)} helperText={errors.budget} inputProps={{ inputMode: "decimal" }} />
                   </Grid>
                 </Grid>
                 <TextField
                   label={contact.form.fields.message}
                   fullWidth
+                  required
                   multiline
                   rows={5}
                   value={formData.message}
                   onChange={handleChange("message")}
+                  error={Boolean(errors.message)}
+                  helperText={errors.message}
                 />
                 <Button variant="contained" sx={{ py: 1.35, mt: 1 }} onClick={handleSubmit} disabled={submitting}>
                   {contact.form.submitLabel}
