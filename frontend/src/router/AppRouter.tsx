@@ -4,6 +4,7 @@ import { TicketPage } from "../pages/TicketPage";
 import { VehiclesPage } from "../pages/VehiclesPage";
 import { ContactPage } from "../pages/ContactPage";
 import { ToursPage } from "../pages/ToursPage";
+import { HotelsPage } from "../pages/HotelsPage";
 
 export function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export function AppRouter() {
       <Route path="/ticket" element={<TicketPage />} />
       <Route path="/vehicles" element={<VehiclesPage />} />
       <Route path="/tours" element={<ToursPage />} />
+      <Route path="/hotels" element={<HotelsPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

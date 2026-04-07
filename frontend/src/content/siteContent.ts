@@ -6,6 +6,7 @@ export const siteContent: SiteContent = {
     { label: "Ticket", path: "/ticket" },
     { label: "Vehicles", path: "/vehicles" },
     { label: "Tours", path: "/tours" },
+    { label: "Hotels", path: "/hotels" },
     { label: "Book Your Travel", path: "/contact" }
   ],
   brand: {
@@ -16,12 +17,11 @@ export const siteContent: SiteContent = {
   floatingActions: {
     whatsappLabel: "whatsapp",
     whatsappUrl: "https://wa.me/919389844884?text=I%20want%20to%20do%20a%20booking",
-    callLabel: "call",
+    callLabel: "call Sarthak Agrawal",
     callUrl: "tel:+919389844884"
   },
   footer: {
     description: "Premium intercity travel, airport transfers, and curated tour packages with professional drivers and transparent pricing.",
-    gstin: "09ABCDE1234F1Z5",
     services: [
       "Airport Pickup and Drop",
       "Outstation Round Trips",
@@ -30,9 +30,10 @@ export const siteContent: SiteContent = {
       "Customized Tour Packages"
     ],
     contactLines: [
-      "+91 98765 43210",
-      "bookings@handalatravels.in",
-      "Godowlia, Varanasi, Uttar Pradesh",
+      "Tanmay Agrawal: +91 70547 07078",
+      "Sarthak Agrawal: +91 93898 44884",
+      "Dreamdestinationtravel.in@gmail.com",
+      "Mahmoorganj Varanasi",
       "Mon - Sun: 24x7 Support"
     ],
     whyChooseUs: ["Verified Drivers", "Clean Vehicles", "On-Time Pickup", "No Hidden Charges", "Live Trip Assistance"],
@@ -289,9 +290,9 @@ export const siteContent: SiteContent = {
       subtitle: "Share your trip details and we will design the right route, vehicle, and schedule for you."
     },
     details: {
-      phone: "+91 98765 43210",
-      email: "bookings@handalatravels.in",
-      address: "Godowlia, Varanasi, Uttar Pradesh"
+      phone: "Tanmay Agrawal: +91 70547 07078 | Sarthak Agrawal: +91 93898 44884",
+      email: "Dreamdestinationtravel.in@gmail.com",
+      address: "Mahmoorganj Varanasi"
     },
     supportCard: {
       title: "Travel Planning Desk",
@@ -351,5 +352,12 @@ export const siteContent: SiteContent = {
         "Tell us your destination, group size, dates, and travel style. We can plan a custom journey around exactly where you want to go.",
       buttonLabel: "Book Your Travel"
     }
+  },
+  hotelsPage: {
+    section: {
+      title: "Hotel Booking",
+      subtitle: "Explore hotel stays available across popular travel cities."
+    },
+    searchPlaceholder: "Search hotels by city, location, amenity, or hotel name"
   }
 };

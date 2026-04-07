@@ -4,7 +4,6 @@ Multi-page travel website built with:
 
 - React + TypeScript
 - Material UI
-- axios
 - Jotai
 - react-responsive-carousel
 - react-router-dom
@@ -14,9 +13,8 @@ Multi-page travel website built with:
 - Home
 - Ticket (fare table)
 - Vehicles (bookable cards)
-- Gallery
 - Contact
-- Account
+- Tours
 
 ## Run
 

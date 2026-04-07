@@ -1,0 +1,107 @@
+﻿[
+    {
+        "id":  "dd803cc6-89b3-45a9-973c-eeb1e570b9e2",
+        "name":  "Audi",
+        "image_url":  "https://stimg.cardekho.com/images/carexteriorimages/630x420/Audi/A4/10548/1757137106350/front-left-side-47.jpg?impolicy=resize\u0026imwidth=480",
+        "category":  "luxury",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "7eb5b9a0-38e0-444e-9ecf-23fdcade0ec0",
+        "name":  "BMW",
+        "image_url":  "https://stimg.cardekho.com/images/carexteriorimages/930x620/BMW/X5/10452/1762779994999/front-left-side-47.jpg",
+        "category":  "luxury",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "0ddfa7d8-83bf-46f7-9ce8-83f09a93a8c5",
+        "name":  "Mercedes",
+        "image_url":  "https://stimg.cardekho.com/images/carexteriorimages/930x620/Mercedes-Benz/C-Class/10858/1774342866770/front-left-side-47.jpg",
+        "category":  "luxury",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "5fcf4720-4ec0-47f0-a1cf-bc9f7a038ae9",
+        "name":  "Kia Carens",
+        "image_url":  "https://imgd.aeplcdn.com/1056x594/n/a9aj3cb_1726561.jpg?q=80",
+        "category":  "muv_suv",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "90f2c82c-9587-4347-ba4d-121dbc19d402",
+        "name":  "Maruti Suzuki Ertiga",
+        "image_url":  "https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Ertiga/10288/1755776579514/front-left-side-47.jpg",
+        "category":  "muv_suv",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "414dc826-4aaa-4e1f-81c7-9a715f6d42c2",
+        "name":  "Toyota Fortuner",
+        "image_url":  "https://imgd.aeplcdn.com/642x336/n/cw/ec/137767/fortuner-legender-exterior-right-front-three-quarter-5.png?isig=0\u0026q=80",
+        "category":  "muv_suv",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "27ccded5-3c4f-4625-ba87-d4998a2fd324",
+        "name":  "Toyota Innova",
+        "image_url":  "https://imgd.aeplcdn.com/664x374/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-74.png?isig=0\u0026q=80",
+        "category":  "muv_suv",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "e9291097-9dbf-497d-bc7b-d4c85c8fca0e",
+        "name":  "Toyota Innova Crysta",
+        "image_url":  "https://imgd.aeplcdn.com/642x336/n/cw/ec/140809/innova-crysta-exterior-right-front-three-quarter-3.png?isig=0\u0026q=80",
+        "category":  "muv_suv",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "6e31f4b8-5b9f-455b-90e5-1bc8da15ab0f",
+        "name":  "Hyundai Aura",
+        "image_url":  "https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Aura/10125/1762429751468/front-left-side-47.jpg",
+        "category":  "sedan",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "95b23385-39d5-4c70-a9c5-86e3a72c941f",
+        "name":  "Maruti Suzuki Dzire",
+        "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4IHf4ONy5ES7a3BqM7kUd7IqRGSL_Nr6BlpefbaQZwvYaPFqBlgLdTvGpnTNkOkrK_Ba6-0HCVUclpB-U5UotB31NyWYhdJPViYTNNQ\u0026s=10",
+        "category":  "sedan",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "6d133a2f-87c7-4bae-83af-2da952d889c3",
+        "name":  "Toyota Etios",
+        "image_url":  "https://imgd.aeplcdn.com/664x374/cw/ec/24731/Toyota-Platinum-Etios-Exterior-119077.jpg?wm=0\u0026q=80",
+        "category":  "sedan",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "1763d8ec-735a-4c61-b5c2-b4d1079f6bce",
+        "name":  "17 Seater Tempo Traveler",
+        "image_url":  "http://chandigarhtaxihire.com/images/17-seater-tempo-4301.jpg",
+        "category":  "tempo_traveler",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "8c6a3e86-4098-4c4e-bf8b-44bf86e3b7be",
+        "name":  "20 Seater Tempo Traveler",
+        "image_url":  "https://punetours.com/wp-content/uploads/2021/01/20-seater-Tempo-Travller.jpg",
+        "category":  "tempo_traveler",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "3a24f09d-aa81-46ea-ad28-71af45430ac1",
+        "name":  "26 Seater Tempo Traveler",
+        "image_url":  "https://punetours.com/wp-content/uploads/2021/01/26-seater-travller.jpg",
+        "category":  "tempo_traveler",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    },
+    {
+        "id":  "c26486d2-9fcf-4343-aa8e-b244540e3733",
+        "name":  "Force Urbania",
+        "image_url":  "https://kartikcab.com/wp-content/uploads/2023/12/11-seater-urbania-6.jpg",
+        "category":  "van",
+        "created_at":  "2026-03-30 06:14:16.016258"
+    }
+]

@@ -23,7 +23,7 @@ export function HomePage() {
       name: SITE_BRAND_NAME,
       url: typeof window !== "undefined" ? window.location.origin : "/",
       image: home.heroSlides[0]?.image ?? SITE_BRAND_LOGO,
-      telephone: "+91 9389844884",
+      telephone: ["+91 70547 07078", "+91 93898 44884"],
       areaServed: "India",
       serviceType: ["Tour Packages", "Taxi Booking", "Airport Transfers", "Outstation Travel"]
     }

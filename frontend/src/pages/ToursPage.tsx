@@ -1,12 +1,13 @@
-import { Alert, Box, Button, Container, Stack, Typography } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { Box, Button, Container, InputAdornment, Stack, TextField, Typography } from "@mui/material";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { useAtomValue } from "jotai";
+import { useMemo, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { fetchTours } from "../api/services";
-import { LoadingState } from "../components/LoadingState";
 import { SectionTitle } from "../components/SectionTitle";
 import { ToursByZone } from "../components/ToursByZone";
 import { useSiteContent } from "../content/SiteContentContext";
 import { usePageSeo } from "../seo";
+import { tourPackagesAtom } from "../state/atoms";
 
 export function ToursPage() {
   const { toursPage } = useSiteContent();
@@ -15,25 +16,48 @@ export function ToursPage() {
     description: "Browse Dream Destinations Travel tour packages by zone and region, with curated itineraries for popular destinations across India.",
     path: "/tours"
   });
-  const {
-    data: tours = [],
-    isLoading,
-    error
-  } = useQuery({
-    queryKey: ["tours"],
-    queryFn: fetchTours
-  });
+  const tours = useAtomValue(tourPackagesAtom);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  if (isLoading) {
-    return <LoadingState label="Loading tours..." />;
-  }
+  const filteredTours = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    if (!query) {
+      return tours;
+    }
+
+    return tours.filter((tour) =>
+      [tour.name, tour.region, tour.zone, tour.city ?? "", tour.days, tour.description].some((value) => value.toLowerCase().includes(query))
+    );
+  }, [searchTerm, tours]);
 
   return (
     <Container maxWidth="xl" sx={{ py: 5 }}>
       <SectionTitle title={toursPage.section.title} subtitle={toursPage.section.subtitle} />
       <Stack spacing={3}>
-        {error ? <Alert severity="error">{error instanceof Error ? error.message : "Failed to load tours."}</Alert> : null}
-        <ToursByZone tours={tours} />
+        <TextField
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder="Search tours by city, region, zone, days, or destination"
+          fullWidth
+          aria-label="Search tours"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchRoundedIcon />
+              </InputAdornment>
+            )
+          }}
+          sx={{
+            maxWidth: 760,
+            mx: "auto",
+            "& .MuiOutlinedInput-root": {
+              bgcolor: "rgba(255,255,255,0.82)",
+              borderRadius: "18px"
+            }
+          }}
+        />
+        <ToursByZone tours={filteredTours} emptyLabel="No tours match your search." />
         <Box
           sx={{
             mt: 2,

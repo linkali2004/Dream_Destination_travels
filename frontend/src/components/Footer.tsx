@@ -25,7 +25,6 @@ export function Footer() {
               <Typography sx={{ color: "rgba(220,230,255,0.85)", lineHeight: 1.7 }}>
                 {footer.description}
               </Typography>
-              <Typography sx={{ color: "rgba(220,230,255,0.72)" }}>GSTIN: {footer.gstin}</Typography>
             </Stack>
           </Grid>
 

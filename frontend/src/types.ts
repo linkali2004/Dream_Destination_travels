@@ -32,10 +32,11 @@ export type Vehicle = {
 };
 
 export type VehicleCatalogItem = {
-  id?: number;
+  id?: string;
   name: string;
   image_url: string;
   category?: VehicleCategoryKey;
+  created_at?: string;
 };
 
 export type VehicleCategoryKey = "sedan" | "muv_suv" | "tempo_traveler" | "van" | "luxury";
@@ -57,6 +58,18 @@ export type TourPackage = {
   days: string;
   description: string;
   created_at?: string | null;
+  city?: string;
+};
+
+export type Hotel = {
+  id: string;
+  name: string;
+  city: string;
+  location: string;
+  pricePerNight: string;
+  images: string[];
+  description: string;
+  amenities: string[];
 };
 
 export type FareRow = {
@@ -164,6 +177,11 @@ export type ToursPageContent = {
   };
 };
 
+export type HotelsPageContent = {
+  section: SectionContent;
+  searchPlaceholder: string;
+};
+
 export type TicketContent = {
   section: SectionContent;
   tableHeaders: string[];
@@ -184,7 +202,6 @@ export type VehiclesPageContent = {
 
 export type FooterContent = {
   description: string;
-  gstin: string;
   services: string[];
   contactLines: string[];
   whyChooseUs: string[];
@@ -208,4 +225,5 @@ export type SiteContent = {
   ticket: TicketContent;
   vehiclesPage: VehiclesPageContent;
   toursPage: ToursPageContent;
+  hotelsPage: HotelsPageContent;
 };

@@ -1,15 +1,13 @@
 import { Alert, Box, Chip, Container, Snackbar, Stack, Typography } from "@mui/material";
-import { useAtom } from "jotai";
-import { useQuery } from "@tanstack/react-query";
+import { useAtom, useAtomValue } from "jotai";
 import { useNavigate } from "react-router-dom";
-import { fetchVehicleCatalog, submitBooking } from "../api/services";
+import { vehicleCategoryOrder } from "../data/catalog";
 import { AvailableVehicleCard } from "../components/AvailableVehicleCard";
-import { LoadingState } from "../components/LoadingState";
 import { SectionTitle } from "../components/SectionTitle";
 import { useSiteContent } from "../content/SiteContentContext";
 import { usePageSeo } from "../seo";
-import { bookingToastAtom, selectedVehicleAtom } from "../state/atoms";
-import type { VehicleCatalog, VehicleCatalogItem } from "../types";
+import { bookingToastAtom, selectedVehicleAtom, vehicleCatalogAtom } from "../state/atoms";
+import type { VehicleCatalogItem } from "../types";
 
 export function VehiclesPage() {
   const { vehiclesPage } = useSiteContent();
@@ -21,32 +19,9 @@ export function VehiclesPage() {
   const navigate = useNavigate();
   const [selectedVehicle, setSelectedVehicle] = useAtom(selectedVehicleAtom);
   const [toastOpen, setToastOpen] = useAtom(bookingToastAtom);
-  const emptyCatalog: VehicleCatalog = {
-    sedan: [],
-    muv_suv: [],
-    tempo_traveler: [],
-    van: [],
-    luxury: []
-  };
-  const {
-    data: vehiclesByCategory = emptyCatalog,
-    isLoading,
-    error
-  } = useQuery({
-    queryKey: ["vehicleCatalog"],
-    queryFn: fetchVehicleCatalog
-  });
-
-  const categoryOrder = [
-    { key: "sedan", label: "Sedan" },
-    { key: "muv_suv", label: "MUV / SUV" },
-    { key: "tempo_traveler", label: "Tempo Traveler" },
-    { key: "van", label: "Van" },
-    { key: "luxury", label: "Luxury" }
-  ] as const;
+  const vehiclesByCategory = useAtomValue(vehicleCatalogAtom);
 
   const handleBook = (vehicle: VehicleCatalogItem) => {
-    void submitBooking({ vehicleName: vehicle.name });
     setSelectedVehicle(vehicle);
     setToastOpen(true);
     const bookingParams = new URLSearchParams({
@@ -60,14 +35,8 @@ export function VehiclesPage() {
   return (
     <Container maxWidth="xl" sx={{ py: 5 }}>
       <SectionTitle title={vehiclesPage.section.title} subtitle={vehiclesPage.section.subtitle} />
-      {isLoading ? <LoadingState label="Loading vehicles..." /> : null}
-      {error ? (
-        <Alert severity="error" sx={{ mb: 3 }}>
-          {error instanceof Error ? error.message : "Failed to load vehicles."}
-        </Alert>
-      ) : null}
       <Stack spacing={5}>
-        {categoryOrder.map(({ key, label }) => {
+        {vehicleCategoryOrder.map(({ key, label }) => {
           const vehicles = vehiclesByCategory[key];
 
           if (!vehicles.length) {
